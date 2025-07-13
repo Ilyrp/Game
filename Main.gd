@@ -23,7 +23,7 @@ func _ready() -> void:
 	spawn_enemy()
 	spawn_items()
 
-func render_map(map_name: String = "Map1"):
+func render_map(map_name: String = "Map4"):
 	# Remove the existing map if there is one
 	if map != null:
 		map.queue_free()
