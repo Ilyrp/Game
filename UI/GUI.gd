@@ -49,3 +49,4 @@ func set_current_ammo(new_ammo: int):
 
 func set_max_ammo(new_max_ammo: int):
 	max_ammo.text = str(new_max_ammo)
+	

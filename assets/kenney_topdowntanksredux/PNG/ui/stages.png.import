@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxomug8radaob"
-path="res://.godot/imported/stage.png-9f0c22a2276c1275a1e1aa33bb5a62d4.ctex"
+uid="uid://dl8m1etowolk8"
+path="res://.godot/imported/stages.png-c918ece1a82f62aad8d55bf945423abd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/stage.png"
-dest_files=["res://.godot/imported/stage.png-9f0c22a2276c1275a1e1aa33bb5a62d4.ctex"]
+source_file="res://assets/kenney_topdowntanksredux/PNG/ui/stages.png"
+dest_files=["res://.godot/imported/stages.png-c918ece1a82f62aad8d55bf945423abd.ctex"]
 
 [params]
 

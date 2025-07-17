@@ -1,33 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://co1qexoypvkkm"]
+[gd_scene load_steps=10 format=3 uid="uid://co1qexoypvkkm"]
 
 [ext_resource type="StyleBox" path="res://UI/menu_style.tres" id="1_wimwf"]
 [ext_resource type="FontFile" path="res://UI/roboto_mono_64.tres" id="2_6ekpm"]
-[ext_resource type="Texture2D" uid="uid://db8ima5ap36w5" path="res://assets/kenney_topdowntanksredux/PNG/ui/stage.png" id="3_3d1oa"]
+[ext_resource type="Texture2D" uid="uid://dl8m1etowolk8" path="res://assets/kenney_topdowntanksredux/PNG/ui/stages.png" id="3_3d1oa"]
 [ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="3_f1oap"]
+[ext_resource type="Script" uid="uid://dgijidwlldpjl" path="res://UI/stage_1_button.gd" id="4_f1oap"]
+[ext_resource type="FontFile" uid="uid://cvldb0c8m6lwj" path="res://assets/slkscr.ttf" id="5_4o8uq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4o8uq"]
 atlas = ExtResource("3_3d1oa")
-region = Rect2(14.1592, 5, 103.613, 64.8535)
+region = Rect2(-0.272049, -0.6917, 103.489, 76.366)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x16ic"]
+load_path = "res://.godot/imported/stage.png-0712b913a762050ac0d2a23299ba2209.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ekpm"]
-atlas = ExtResource("3_3d1oa")
+atlas = SubResource("CompressedTexture2D_x16ic")
 region = Rect2(261.143, 212.779, 101.633, 63.1124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x16ic"]
-atlas = ExtResource("3_3d1oa")
-region = Rect2(133.833, 5.8078, 102.503, 63.5477)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fc24"]
-atlas = ExtResource("3_3d1oa")
-region = Rect2(257.008, 2.9725, 103.591, 64.2006)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4iar"]
-atlas = ExtResource("3_3d1oa")
-region = Rect2(14.5665, 219.087, 103.374, 63.9829)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gm2f"]
-atlas = ExtResource("3_3d1oa")
-region = Rect2(134.261, 214.734, 102.721, 64.4182)
 
 [node name="Stages" type="Control"]
 layout_mode = 3
@@ -80,22 +69,87 @@ theme_override_constants/separation = 20
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_4o8uq")
 texture_disabled = SubResource("AtlasTexture_6ekpm")
+script = ExtResource("4_f1oap")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
 
 [node name="Stage2Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_x16ic")
+texture_normal = SubResource("AtlasTexture_4o8uq")
+texture_disabled = SubResource("AtlasTexture_6ekpm")
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage2Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
 
 [node name="Stage3Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_2fc24")
+texture_normal = SubResource("AtlasTexture_4o8uq")
+texture_disabled = SubResource("AtlasTexture_6ekpm")
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage3Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
 
 [node name="Stage4Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_u4iar")
+texture_normal = SubResource("AtlasTexture_4o8uq")
+texture_disabled = SubResource("AtlasTexture_6ekpm")
+
+[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage4Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1
 
 [node name="Stage5Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_8gm2f")
+texture_normal = SubResource("AtlasTexture_4o8uq")
+texture_disabled = SubResource("AtlasTexture_6ekpm")
+
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage5Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 30
+text = "5"
+horizontal_alignment = 1
 
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -103,3 +157,7 @@ theme_override_fonts/font = ExtResource("3_f1oap")
 text = "QUIT"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage2Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage2Button" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage3Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage3Button" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage4Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage4Button" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage5Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage5Button" method="_on_pressed"]
