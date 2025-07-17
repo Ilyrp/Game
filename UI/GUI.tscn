@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch5w76fmlree7"]
+[gd_scene load_steps=7 format=3 uid="uid://ch5w76fmlree7"]
 
 [ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="1"]
 [ext_resource type="Script" uid="uid://djaypx2gksfrd" path="res://UI/GUI.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dbut8t4ha87ti" path="res://assets/kenney_topdowntanksredux/PNG/ammo.png" id="2_dl5f7"]
+[ext_resource type="Script" uid="uid://c7o3863ewya8a" path="res://UI/timer.gd" id="2_n3xue"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yki11"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3xue"]
+atlas = ExtResource("2_dl5f7")
+region = Rect2(-15, -11, 0, 0)
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("2")
@@ -10,6 +19,8 @@ script = ExtResource("2")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
@@ -25,6 +36,67 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
+[node name="HealthSection" type="CenterContainer" parent="MarginContainer/Rows/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 2
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/Rows/TopRow/HealthSection"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_yki11")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 6
+script = ExtResource("2_n3xue")
+
+[node name="Minute" type="Label" parent="MarginContainer/Rows/TopRow/HBoxContainer"]
+layout_mode = 2
+text = "00:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Second" type="Label" parent="MarginContainer/Rows/TopRow/HBoxContainer"]
+layout_mode = 2
+text = "00:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Msec" type="Label" parent="MarginContainer/Rows/TopRow/HBoxContainer"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AmmoSection" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Rows/TopRow/AmmoSection"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+texture = SubResource("AtlasTexture_n3xue")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CurrentAmmo" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+text = "30"
+
+[node name="AmmoSeparator" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+text = " / "
+
+[node name="MaxAmmo" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+text = "30"
+
 [node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/Rows"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -35,33 +107,3 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-
-[node name="HealthSection" type="CenterContainer" parent="MarginContainer/Rows/BottomRow"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/Rows/BottomRow/HealthSection"]
-custom_minimum_size = Vector2(200, 30)
-layout_mode = 2
-mouse_filter = 2
-
-[node name="AmmoSection" type="HBoxContainer" parent="MarginContainer/Rows/BottomRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-alignment = 2
-
-[node name="CurrentAmmo" type="Label" parent="MarginContainer/Rows/BottomRow/AmmoSection"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = "30"
-
-[node name="AmmoSeparator" type="Label" parent="MarginContainer/Rows/BottomRow/AmmoSection"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = " / "
-
-[node name="MaxAmmo" type="Label" parent="MarginContainer/Rows/BottomRow/AmmoSection"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = "30"

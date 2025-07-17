@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4g72jbg14yij"]
 
 [ext_resource type="PackedScene" uid="uid://dqbykrqs8vdbw" path="res://weapons/Weapon.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://dn4xtv15ep0t1" path="res://assets/topdown-shooter/Spritesheet/spritesheet_characters.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cjt6vvlbpdg7x" path="res://assets/kenney_topdowntanksredux/PNG/londo rev.png" id="2_7r1k8"]
 [ext_resource type="Script" uid="uid://vho8jqawjkl7" path="res://actors/Actor.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://dchvknxdk0g0c" path="res://actors/Health.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://bms2bwebdg2mj" path="res://actors/AI.tscn" id="5"]
@@ -15,8 +15,9 @@ script = ExtResource("3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8, 0)
-texture = ExtResource("2")
-region_enabled = true
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7r1k8")
 region_rect = Rect2(352, 176, 38, 44)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

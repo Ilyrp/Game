@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 
-@onready var health_bar = $MarginContainer/Rows/BottomRow/HealthSection/HealthBar
-@onready var current_ammo = $MarginContainer/Rows/BottomRow/AmmoSection/CurrentAmmo
-@onready var max_ammo = $MarginContainer/Rows/BottomRow/AmmoSection/MaxAmmo
+@onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
+@onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
+@onready var max_ammo = $MarginContainer/Rows/TopRow/AmmoSection/MaxAmmo
 
 
 var player: Player
