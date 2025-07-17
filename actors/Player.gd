@@ -53,6 +53,7 @@ func handle_hit():
 	emit_signal("player_health_changed", health_stat.health)
 	if health_stat.health <= 0:
 		die()
+		get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")
 
 
 func die():
