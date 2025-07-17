@@ -30,8 +30,6 @@ position = Vector2(16, 12)
 [node name="Health" parent="." instance=ExtResource("4")]
 
 [node name="AI" parent="." instance=ExtResource("5")]
-visible = false
-should_draw_path_line = false
 
 [node name="Team" parent="." instance=ExtResource("6")]
 team = 2

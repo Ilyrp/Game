@@ -6,6 +6,7 @@
 radius = 300.0
 
 [node name="AI" type="Node2D"]
+visible = false
 script = ExtResource("1")
 
 [node name="DetectionZone" type="Area2D" parent="." groups=["enemy"]]
