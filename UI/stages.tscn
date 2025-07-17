@@ -1,22 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://co1qexoypvkkm"]
+[gd_scene load_steps=9 format=3 uid="uid://co1qexoypvkkm"]
 
 [ext_resource type="StyleBox" path="res://UI/menu_style.tres" id="1_wimwf"]
-[ext_resource type="FontFile" path="res://UI/roboto_mono_64.tres" id="2_6ekpm"]
+[ext_resource type="Texture2D" uid="uid://cfy4f645yywv3" path="res://assets/7-tokoh-pertempuran-surabaya-10-november-profil-dan-perannya_169.jpeg" id="2_4o8uq"]
 [ext_resource type="Texture2D" uid="uid://dl8m1etowolk8" path="res://assets/kenney_topdowntanksredux/PNG/ui/stages.png" id="3_3d1oa"]
-[ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="3_f1oap"]
-[ext_resource type="Script" uid="uid://dgijidwlldpjl" path="res://UI/stage_1_button.gd" id="4_f1oap"]
+[ext_resource type="Texture2D" uid="uid://d1nq2b1tgsh8y" path="res://assets/kenney_topdowntanksredux/PNG/ui/lock.png" id="4_4o8uq"]
+[ext_resource type="Script" uid="uid://dgijidwlldpjl" path="res://UI/stageButton.gd" id="4_f1oap"]
 [ext_resource type="FontFile" uid="uid://cvldb0c8m6lwj" path="res://assets/slkscr.ttf" id="5_4o8uq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4o8uq"]
 atlas = ExtResource("3_3d1oa")
 region = Rect2(-0.272049, -0.6917, 103.489, 76.366)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x16ic"]
-load_path = "res://.godot/imported/stage.png-0712b913a762050ac0d2a23299ba2209.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ekpm"]
-atlas = SubResource("CompressedTexture2D_x16ic")
-region = Rect2(261.143, 212.779, 101.633, 63.1124)
+atlas = ExtResource("4_4o8uq")
+region = Rect2(14, 24, 68, 50)
 
 [node name="Stages" type="Control"]
 layout_mode = 3
@@ -37,6 +34,11 @@ offset_bottom = 650.0
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_wimwf")
 
+[node name="7-tokoh-pertempuran-surabaya-10-november-profil-dan-perannya169" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(575, 317)
+scale = Vector2(1.6444, 1.6444)
+texture = ExtResource("2_4o8uq")
+
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 40
@@ -50,7 +52,11 @@ theme_override_constants/separation = 80
 
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_6ekpm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 40
 text = "PEJOE-ANG SOERABAJA"
 horizontal_alignment = 1
 
@@ -67,6 +73,7 @@ theme_override_constants/separation = 20
 
 [node name="Stage1Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_4o8uq")
 texture_disabled = SubResource("AtlasTexture_6ekpm")
 script = ExtResource("4_f1oap")
@@ -85,8 +92,12 @@ horizontal_alignment = 1
 
 [node name="Stage2Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_4o8uq")
 texture_disabled = SubResource("AtlasTexture_6ekpm")
+stretch_mode = 0
+script = ExtResource("4_f1oap")
+map_name = "Map2"
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage2Button"]
 layout_mode = 1
@@ -102,8 +113,12 @@ horizontal_alignment = 1
 
 [node name="Stage3Button" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_4o8uq")
 texture_disabled = SubResource("AtlasTexture_6ekpm")
+stretch_mode = 0
+script = ExtResource("4_f1oap")
+map_name = "Map3"
 
 [node name="Label3" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage3Button"]
 layout_mode = 1
@@ -121,6 +136,9 @@ horizontal_alignment = 1
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_4o8uq")
 texture_disabled = SubResource("AtlasTexture_6ekpm")
+stretch_mode = 0
+script = ExtResource("4_f1oap")
+map_name = "Map4"
 
 [node name="Label4" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage4Button"]
 layout_mode = 1
@@ -138,6 +156,9 @@ horizontal_alignment = 1
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_4o8uq")
 texture_disabled = SubResource("AtlasTexture_6ekpm")
+stretch_mode = 0
+script = ExtResource("4_f1oap")
+map_name = "Map5"
 
 [node name="Label5" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage5Button"]
 layout_mode = 1
@@ -153,7 +174,8 @@ horizontal_alignment = 1
 
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_f1oap")
+theme_override_fonts/font = ExtResource("5_4o8uq")
+theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" method="_on_pressed"]
