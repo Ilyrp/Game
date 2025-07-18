@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj2jfkqa1jd7h"]
+[gd_scene load_steps=10 format=3 uid="uid://dj2jfkqa1jd7h"]
 
 [ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="1"]
 [ext_resource type="FontFile" path="res://UI/roboto_mono_64.tres" id="2"]
 [ext_resource type="Script" uid="uid://cn2les054n2f5" path="res://UI/GameOverScreen.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://dio6hwp62n2ld" path="res://assets/kenney_topdowntanksredux/Sound/Victory.mp3" id="4_hkg5r"]
+[ext_resource type="AudioStream" uid="uid://bbdqwwttsk5sx" path="res://assets/kenney_topdowntanksredux/Sound/Lose.mp3" id="5_wd1oi"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "fade"
@@ -99,15 +101,15 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1")
 text = " RESTART "
 
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+text = "Select Stage"
+
 [node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1")
 text = " MAIN MENU "
-
-[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = "QUIT"
 
 [node name="Overlay" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -119,6 +121,14 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("3")
 
+[node name="Victory" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(515.002, 152)
+stream = ExtResource("4_hkg5r")
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(515.002, 152)
+stream = ExtResource("5_wd1oi")
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

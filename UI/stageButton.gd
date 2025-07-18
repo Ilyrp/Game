@@ -28,3 +28,7 @@ func update_star_display():
 func _on_pressed() -> void:
 	Map.selected_map = map_name  # Simpen nama map ke singleton
 	get_tree().change_scene_to_file("res://Main.tscn")  # Pindah ke Main scene
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://UI/MainMenuScreen.tscn")

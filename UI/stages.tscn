@@ -239,10 +239,11 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_4o8uq")
 theme_override_font_sizes/font_size = 30
-text = "QUIT"
+text = "Back"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage2Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage2Button" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage3Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage3Button" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage4Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage4Button" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage5Button" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage5Button" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/StageButtons/Stage1Button" method="_on_quit_button_pressed"]

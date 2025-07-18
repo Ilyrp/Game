@@ -1892,5 +1892,5 @@ position = Vector2(1548, -582)
 position = Vector2(-109, 1448)
 
 [node name="Finish" parent="." instance=ExtResource("2_ehrkc")]
-position = Vector2(2084, 292)
+position = Vector2(2075, 382)
 rotation = -1.5708

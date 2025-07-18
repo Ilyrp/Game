@@ -16,6 +16,7 @@ func set_title(win: bool):
 	if win:
 		title.text = "YOU WIN!"
 		title.modulate = Color.GREEN
+		$Victory.play()
 		var main = get_tree().current_scene
 		if main and main.has_method("get_enemy_counts"):
 			var counts = main.get_enemy_counts()
@@ -27,7 +28,8 @@ func set_title(win: bool):
 	else:
 		title.text = "YOU LOSE!"
 		title.modulate = Color.RED
-		kill_count_label.text = "Try Again!"
+		$Lose.play()
+		#kill_count_label.text = "Try Again!"
 		star_container.visible = false
 		
 func calculate_stars(killed: int, total: int) -> int:

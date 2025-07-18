@@ -61,25 +61,8 @@ func handle_hit():
 
 
 func die():
-	# Immediately pause the game to stop all gameplay and respawn
-	get_tree().paused = true
-	# Emit died signal to notify other scripts
 	emit_signal("died")
-	# Disable physics and hide player to prevent visual glitches
-	set_physics_process(false)
-	visible = false
-	# Instantiate and show game over screen with "YOU LOSE!"
-	var game_over_screen = load("res://UI/GameOverScreen.tscn").instantiate()
-	get_tree().current_scene.add_child(game_over_screen)
-	var game_over_script = game_over_screen as CanvasLayer
-	if game_over_script:
-		game_over_script.set_title(false)
-	else:
-		push_error("Failed to cast GameOverScreen")
-	# Remove player to prevent respawn
 	queue_free()
-	# Debug print to confirm death
-	print("Player died, game paused, showing GameOverScreen")
 
 func heal(amount: int):
 	health_stat.health += amount
