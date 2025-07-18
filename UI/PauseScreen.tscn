@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://lpy5iqiab13h"]
+[gd_scene load_steps=6 format=3 uid="uid://lpy5iqiab13h"]
 
 [ext_resource type="StyleBox" path="res://UI/menu_style.tres" id="1"]
-[ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="2"]
 [ext_resource type="Script" uid="uid://djn0fhencub5i" path="res://UI/PauseScreen.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://bg15ojnrbrpep" path="res://assets/kenney_topdowntanksredux/PNG/ui/button KECIL.png" id="4_btr2c"]
+[ext_resource type="FontFile" uid="uid://cvldb0c8m6lwj" path="res://assets/slkscr.ttf" id="5_y8gg8"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0, 0, 0, 0.25098)
@@ -40,22 +41,55 @@ theme_override_constants/separation = 20
 
 [node name="PauseTitle" type="Label" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2")
-text = "PAUSED"
+theme_override_fonts/font = ExtResource("5_y8gg8")
+text = "JEDA"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+[node name="ContinueButton" type="TextureButton" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2")
-text = "CONTINUE"
+texture_normal = ExtResource("4_btr2c")
+stretch_mode = 3
 
-[node name="MainMenuButton" type="Button" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
+[node name="Label" type="Label" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows/ContinueButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -8.0
+offset_right = 35.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_y8gg8")
+theme_override_font_sizes/font_size = 11
+text = "lanjutkan"
+uppercase = true
+
+[node name="MainMenuButton" type="TextureButton" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2")
-text = " MAIN MENU "
+texture_normal = ExtResource("4_btr2c")
+
+[node name="Label2" type="Label" parent="PauseMenuContainer/PanelContainer/MarginContainer/Rows/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_y8gg8")
+theme_override_font_sizes/font_size = 11
+text = "keluar"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/MarginContainer/Rows/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

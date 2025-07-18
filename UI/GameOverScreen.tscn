@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj2jfkqa1jd7h"]
+[gd_scene load_steps=11 format=3 uid="uid://dj2jfkqa1jd7h"]
 
-[ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="1"]
 [ext_resource type="FontFile" path="res://UI/roboto_mono_64.tres" id="2"]
 [ext_resource type="Script" uid="uid://cn2les054n2f5" path="res://UI/GameOverScreen.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://dcv425mp6ibxy" path="res://assets/kenney_topdowntanksredux/PNG/ui/button panjang.png" id="3_mk15g"]
 [ext_resource type="AudioStream" uid="uid://dio6hwp62n2ld" path="res://assets/kenney_topdowntanksredux/Sound/Victory.mp3" id="4_hkg5r"]
+[ext_resource type="FontFile" uid="uid://cvldb0c8m6lwj" path="res://assets/slkscr.ttf" id="4_q8i0d"]
 [ext_resource type="AudioStream" uid="uid://bbdqwwttsk5sx" path="res://assets/kenney_topdowntanksredux/Sound/Lose.mp3" id="5_wd1oi"]
 
 [sub_resource type="Animation" id="2"]
@@ -96,26 +97,68 @@ layout_mode = 2
 [node name="killCountLabel" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = " RESTART "
+texture_normal = ExtResource("3_mk15g")
+stretch_mode = 3
 
-[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = "Select Stage"
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_q8i0d")
+theme_override_font_sizes/font_size = 13
+text = "MULAI ULANG"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+[node name="MainMenuButton" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = " MAIN MENU "
+texture_normal = ExtResource("3_mk15g")
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_q8i0d")
+theme_override_font_sizes/font_size = 13
+text = "PILIH STAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_mk15g")
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_q8i0d")
+theme_override_font_sizes/font_size = 13
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Overlay" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -18.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -130,5 +173,5 @@ position = Vector2(515.002, 152)
 stream = ExtResource("5_wd1oi")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dincympditiwp"]
 
-[ext_resource type="FontFile" path="res://UI/roboto_mono_36.tres" id="1"]
-[ext_resource type="FontFile" path="res://UI/roboto_mono_64.tres" id="2"]
 [ext_resource type="Script" uid="uid://d37me56njgx3" path="res://UI/MainMenuScreen.gd" id="3"]
-[ext_resource type="StyleBox" path="res://UI/menu_style.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://cfy4f645yywv3" path="res://assets/7-tokoh-pertempuran-surabaya-10-november-profil-dan-perannya_169.jpeg" id="3_wixjl"]
+[ext_resource type="FontFile" uid="uid://cvldb0c8m6lwj" path="res://assets/slkscr.ttf" id="4_da01o"]
+[ext_resource type="Texture2D" uid="uid://wie3bnb0328f" path="res://assets/kenney_topdowntanksredux/PNG/ui/button.png" id="5_1kfsl"]
 
 [node name="MainMenuScreen" type="Control"]
 process_mode = 3
@@ -11,50 +11,83 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("3")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 650.0
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("4")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 1143.0
+offset_bottom = 640.0
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="7-tokoh-pertempuran-surabaya-10-november-profil-dan-perannya169" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(569.654, 322.25)
+scale = Vector2(1.64758, 1.64758)
+texture = ExtResource("3_wixjl")
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+[node name="Title" type="Label" parent="MarginContainer/Rows"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2")
-text = "PEJOE-ANG SOERABAJA"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_da01o")
+theme_override_font_sizes/font_size = 40
+text = "PEDJOEANG SOERABAJA"
 horizontal_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Rows"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Rows/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
-text = "  PLAY  "
+size_flags_vertical = 3
+texture_normal = ExtResource("5_1kfsl")
+stretch_mode = 5
 
-[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Rows/CenterContainer/VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.047619
+anchor_right = 1.0
+anchor_bottom = 0.952381
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_da01o")
+theme_override_font_sizes/font_size = 25
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="TextureButton" parent="MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1")
+texture_normal = ExtResource("5_1kfsl")
+
+[node name="Label2" type="Label" parent="MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_da01o")
+theme_override_font_sizes/font_size = 25
 text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Rows/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Rows/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
