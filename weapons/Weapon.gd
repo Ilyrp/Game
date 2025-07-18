@@ -23,12 +23,15 @@ func _ready() -> void:
 	if bullet_scene == null:
 		print("WARNING: Bullet scene not assigned! Loading default bullet.tscn...")
 		bullet_scene = load("res://weapons/Bullet.tscn")
+		
+		
 
 func initialize(newTeam: int):
 	self.team = newTeam
 
 func start_reload():
 	animation_player.play("reload")
+	$GunReload.play()
 
 func _stop_reload():
 	current_ammo = max_ammo
@@ -61,3 +64,7 @@ func shoot():
 		animation_player.play("muzzle_flash")
 
 		set_current_ammo(current_ammo - 1)
+		$GunVoice.play()
+	elif current_ammo == 0:
+		$GunEmpty.play()
+		

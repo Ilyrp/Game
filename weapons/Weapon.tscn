@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqbykrqs8vdbw"]
+[gd_scene load_steps=10 format=3 uid="uid://dqbykrqs8vdbw"]
 
 [ext_resource type="Texture2D" uid="uid://ddy845b6jy13w" path="res://assets/kenney_topdowntanksredux/Spritesheet/onlyObjects_default.png" id="1"]
 [ext_resource type="Script" uid="uid://dflttxy40x6j8" path="res://weapons/Weapon.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://b7iwgdjax0emh" path="res://assets/topdown-shooter/PNG/weapon_silencer.png" id="4"]
+[ext_resource type="AudioStream" uid="uid://bk8itry7f3gnu" path="res://assets/kenney_topdowntanksredux/Sound/GunShoot.mp3" id="4_m6tmw"]
+[ext_resource type="AudioStream" uid="uid://d4d45dwxyuhd8" path="res://assets/kenney_topdowntanksredux/Sound/GunReload.mp3" id="5_ha8qd"]
+[ext_resource type="AudioStream" uid="uid://bjm6rt2jld2l8" path="res://assets/kenney_topdowntanksredux/Sound/EmptyGun.mp3" id="6_chkx4"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "muzzle_flash"
@@ -93,3 +96,12 @@ region_rect = Rect2(324, 334, 20, 25)
 libraries = {
 &"": SubResource("AnimationLibrary_r7tl5")
 }
+
+[node name="GunVoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m6tmw")
+
+[node name="GunReload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ha8qd")
+
+[node name="GunEmpty" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_chkx4")
