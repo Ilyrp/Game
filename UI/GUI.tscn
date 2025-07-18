@@ -47,6 +47,35 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_yki11")
 
+[node name="killSection" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+
+[node name="enemy killed" type="Label" parent="MarginContainer/Rows/TopRow/killSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 14
+text = "enemy killed"
+
+[node name="killcount" type="Label" parent="MarginContainer/Rows/TopRow/killSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 16
+text = "30"
+
+[node name="AmmoSeparator" type="Label" parent="MarginContainer/Rows/TopRow/killSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 16
+text = " / "
+
+[node name="enemynode" type="Label" parent="MarginContainer/Rows/TopRow/killSection"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 16
+text = "30"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Rows/TopRow"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -85,16 +114,19 @@ stretch_mode = 1
 [node name="CurrentAmmo" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
 text = "30"
 
 [node name="AmmoSeparator" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
 text = " / "
 
 [node name="MaxAmmo" type="Label" parent="MarginContainer/Rows/TopRow/AmmoSection"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 20
 text = "30"
 
 [node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/Rows"]

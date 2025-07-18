@@ -58,7 +58,6 @@ libraries = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -89,6 +88,12 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 40
 
+[node name="starContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="killCountLabel" type="Label" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1")
@@ -109,6 +114,8 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("3")
 

@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var health_bar = $MarginContainer/Rows/TopRow/HealthSection/HealthBar
 @onready var current_ammo = $MarginContainer/Rows/TopRow/AmmoSection/CurrentAmmo
 @onready var max_ammo = $MarginContainer/Rows/TopRow/AmmoSection/MaxAmmo
+@onready var kill_count = $"MarginContainer/Rows/TopRow/killSection/killcount"
+@onready var enemynode = $"MarginContainer/Rows/TopRow/killSection/enemynode"
 
 
 var player: Player
@@ -49,6 +51,13 @@ func set_current_ammo(new_ammo: int):
 
 func set_max_ammo(new_max_ammo: int):
 	max_ammo.text = str(new_max_ammo)
+	
+func _process(delta):
+	var main = get_parent()
+	if main and main.has_method("get_enemy_counts"):
+		var counts = main.get_enemy_counts()
+		kill_count.text = str(counts.killed)
+		enemynode.text = str(counts.total)
 	
 	
 	

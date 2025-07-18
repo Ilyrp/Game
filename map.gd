@@ -19,7 +19,26 @@ func is_stage_unlocked(stage_name: String) -> bool:
 	var stage_number = int(stage_name.replace("Map", ""))
 	var prev_stage = "Map" + str(stage_number - 1)
 	return stars_per_stage.get(prev_stage, 0) > 0
-
+	
 # Fungsi untuk simpan bintang setelah stage selesai
 func set_stars_for_stage(stage_name: String, stars: int) -> void:
-	stars_per_stage[stage_name] = clamp(stars, 0, 3)  # Bintang antara 0-3
+# Hanya update jika lebih besar dari nilai sebelumnya
+	if stars > stars_per_stage.get(stage_name, 0):
+		stars_per_stage[stage_name] = clamp(stars, 0, 3)
+		save_progress()
+
+func save_progress():
+# Simpan progress ke file
+	var save_data = {
+		"stars_per_stage": stars_per_stage
+	}
+	var file = FileAccess.open("user://game_save.dat", FileAccess.WRITE)
+	file.store_var(save_data)
+
+func load_progress():
+# Load progress dari file
+	if FileAccess.file_exists("user://game_save.dat"):
+		var file = FileAccess.open("user://game_save.dat", FileAccess.READ)
+		var save_data = file.get_var()
+		if save_data is Dictionary and save_data.has("stars_per_stage"):
+			stars_per_stage = save_data["stars_per_stage"]

@@ -14,6 +14,8 @@ const MAP_SCENE_PATH = "res://map/%s.tscn"
 @onready var gui = $GUI
 @onready var map = null
 @onready var player = null
+var enemy_killed = 0
+var total_enemy = 0
 
 func _ready() -> void:
 	randomize()
@@ -52,10 +54,12 @@ func spawn_player():
 func spawn_enemy():
 	if map and map.has_node("EnemySpawn"):
 		var spawn_points = map.get_node("EnemySpawn").get_children()
+		total_enemy = spawn_points.size()
 		for spawn_point in spawn_points:
 			var enemy = EnemyScene.instantiate()
 			add_child(enemy)
 			enemy.global_position = spawn_point.global_position
+			enemy.connect("died", Callable(self, "_on_enemy_died"))
 			
 			# Set navigation map for enemy's AI
 			var nav_map = get_world_2d().get_navigation_map()
@@ -66,6 +70,9 @@ func spawn_enemy():
 		var enemy = EnemyScene.instantiate()
 		add_child(enemy)
 		enemy.global_position = Vector2(100, 100)
+		
+func _on_enemy_died():
+	enemy_killed += 1
 
 func spawn_items():
 	if map and map.has_node("ItemSpawn"):
@@ -97,6 +104,8 @@ func handle_player_win():
 	var game_over = GameOverScreen.instantiate()
 	add_child(game_over)
 	game_over.set_title(true)
+	var stars = calculate_stars()
+	Map.set_stars_for_stage(Map.selected_map, stars)
 	get_tree().paused = true
 
 func handle_player_lost():
@@ -109,3 +118,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		var pause_menu = PauseScreen.instantiate()
 		add_child(pause_menu)
+
+func get_enemy_counts():
+	return {"total": total_enemy, "killed": enemy_killed}
+
+func calculate_stars() -> int:
+	var kill_ratio = float(enemy_killed)/float(total_enemy)
+	if enemy_killed == total_enemy:  # Kill semua musuh
+		return 3
+	elif kill_ratio >= 0.5:  # Kill lebih dari setengah
+		return 2
+	elif enemy_killed > 0:  # Kill minimal 1
+		return 1
+	else:  # Tidak kill sama sekali
+		return 0
